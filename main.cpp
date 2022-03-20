@@ -6,7 +6,6 @@ void printVector(vector<int> tar)
 {
     for (int i = 0; i < tar.size(); i++)
         cout << tar[i] << " ";
-        cout<<"///";
 }
 vector<int> strassenAlgorithm(vector<int> polyA, vector<int> polyB)
 {
@@ -77,7 +76,27 @@ int main()
 {
     vector<int> A;
     vector<int> B;
+    int sizeA, sizeB;
+    cout<<"nhap kich co da thuc A:";
+    cin>>sizeA;
+    cout<<"Nhap da thuc A:";
+    for(int i=1;i<=sizeA;i++)
+    {
+        int tmp;
+        cin>>tmp;
+        A.push_back(tmp);
+    }
+   cout<<"nhap kich co da thuc B:";
+    cin>>sizeB;
+    cout<<"Nhap da thuc B:";
+    for(int i=1;i<=sizeB;i++)
+    {
+        int tmp;
+        cin>>tmp;
+        B.push_back(tmp);
+    }
     vector<int> ans = strassenAlgorithm(A, B);
+    cout<<"Ket qua la: ";
     printVector(ans);
     return 0;
 }
