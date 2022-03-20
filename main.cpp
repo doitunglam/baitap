@@ -70,8 +70,6 @@ vector<int> strassenAlgorithm(vector<int> polyA, vector<int> polyB)
         QR.swap(PS);
     for (int i = 0; i < PS.size(); i++)
         QR[i] += PS[i];
-    while (QR[QR.size() - 1] == 0 && QR.size() != 0)
-        QR.pop_back();
     if (QR.size() != 0)
         if ((QR.size() + halfMaxSize - 1) > maxAnsDegree)
             maxAnsDegree = QR.size() + halfMaxSize - 1;
