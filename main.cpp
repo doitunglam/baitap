@@ -4,12 +4,24 @@ using namespace std;
 
 void printPoly(vector<int> tar)
 {
-    bool start=false;
+    bool start = false;
     for (int i = 0; i < tar.size(); i++)
     {
-        if(tar[i]>0&&start==false) {cout<<tar[i]<<"x^"<<i;start=true;continue;}
-        if(tar[i]>0&&start==true) {cout<<"+"<<tar[i]<<"x^"<<i;start=true;continue;}
-        if(tar[i]<0) {cout<<tar[i]<<"x^"<<i;start=false;continue;}
+        if (tar[i] > 0)
+            if (start == false)
+            {
+                cout << tar[i] << "x^" << i;
+                start = true;
+            }
+            else
+            {
+                cout << "+" << tar[i] << "x^" << i;
+            }
+        if (tar[i] < 0)
+        {
+            cout << tar[i] << "x^" << i;
+            start = true;
+        }
     }
 }
 vector<int> strassenAlgorithm(vector<int> polyA, vector<int> polyB)
@@ -94,8 +106,9 @@ int main()
         cin >> tmp;
         A.push_back(tmp);
     }
-    cout << "Da thuc A la: " ;
-    printPoly(A);cout<<endl;
+    cout << "Da thuc A la: ";
+    printPoly(A);
+    cout << endl;
     cout << "nhap kich co da thuc B:";
     cin >> sizeB;
     cout << "Nhap da thuc B:";
@@ -106,10 +119,11 @@ int main()
         B.push_back(tmp);
     }
     cout << "Da thuc B la: ";
-    printPoly(B);cout<<endl;
+    printPoly(B);
+    cout << endl;
     vector<int> ans = strassenAlgorithm(A, B);
     cout << "Ket qua la: ";
     printPoly(ans);
- 
+
     return 0;
 }
