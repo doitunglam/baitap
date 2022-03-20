@@ -2,10 +2,14 @@
 
 using namespace std;
 
-void printVector(vector<int> tar)
+void printPoly(vector<int> tar)
 {
-    for (int i = 0; i < tar.size(); i++)
-        cout << tar[i] << " ";
+    cout<<tar[0];
+    for (int i = 1; i < tar.size(); i++)
+    {
+        if(tar[i]>0) cout<<"+"<<tar[i]<<"x^"<<i;
+        if(tar[i]<0) cout<<tar[i]<<"x^"<<i;
+    }
 }
 vector<int> strassenAlgorithm(vector<int> polyA, vector<int> polyB)
 {
@@ -89,10 +93,8 @@ int main()
         cin >> tmp;
         A.push_back(tmp);
     }
-    cout << "Da thuc A la: " << A[0] << "+";
-    for (int i = 1; i < A.size() - 1; i++)
-        cout << A[i] << "x^" << i << "+";
-    cout << A[A.size() - 1] << "x^" << A.size() - 1<<endl;
+    cout << "Da thuc A la: " ;
+    printPoly(A);cout<<endl;
     cout << "nhap kich co da thuc B:";
     cin >> sizeB;
     cout << "Nhap da thuc B:";
@@ -102,14 +104,11 @@ int main()
         cin >> tmp;
         B.push_back(tmp);
     }
-    cout << "Da thuc B la: "<< B[0] << "+";
-    for (int i = 1; i < B.size() - 1; i++)
-        cout << B[i] << "x^" << i << "+";
-    cout << B[B.size() - 1] << "x^" << B.size() - 1<<endl;
+    cout << "Da thuc B la: ";
+    printPoly(B);cout<<endl;
     vector<int> ans = strassenAlgorithm(A, B);
-    cout << "Ket qua la: " << ans[0] << "+";
-     for (int i = 1; i < ans.size() - 1; i++)
-        cout << ans[i] << "x^" << i << "+";
-    cout << ans[ans.size() - 1] << "x^" << ans.size() - 1;
+    cout << "Ket qua la: ";
+    printPoly(ans);
+ 
     return 0;
 }
