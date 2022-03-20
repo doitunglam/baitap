@@ -4,11 +4,12 @@ using namespace std;
 
 void printPoly(vector<int> tar)
 {
-    cout<<tar[0];
-    for (int i = 1; i < tar.size(); i++)
+    bool start=false;
+    for (int i = 0; i < tar.size(); i++)
     {
-        if(tar[i]>0) cout<<"+"<<tar[i]<<"x^"<<i;
-        if(tar[i]<0) cout<<tar[i]<<"x^"<<i;
+        if(tar[i]>0&&start==false) {cout<<tar[i]<<"x^"<<i;start=true;}
+        if(tar[i]>0&&start==true) {cout<<"+"<<tar[i]<<"x^"<<i;start=true;}
+        if(tar[i]<0) {cout<<tar[i]<<"x^"<<i;start=false;}
     }
 }
 vector<int> strassenAlgorithm(vector<int> polyA, vector<int> polyB)
