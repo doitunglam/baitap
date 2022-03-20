@@ -7,9 +7,9 @@ void printPoly(vector<int> tar)
     bool start=false;
     for (int i = 0; i < tar.size(); i++)
     {
-        if(tar[i]>0&&start==false) {cout<<tar[i]<<"x^"<<i;start=true;}
-        if(tar[i]>0&&start==true) {cout<<"+"<<tar[i]<<"x^"<<i;start=true;}
-        if(tar[i]<0) {cout<<tar[i]<<"x^"<<i;start=false;}
+        if(tar[i]>0&&start==false) {cout<<tar[i]<<"x^"<<i;start=true;continue;}
+        if(tar[i]>0&&start==true) {cout<<"+"<<tar[i]<<"x^"<<i;start=true;continue;}
+        if(tar[i]<0) {cout<<tar[i]<<"x^"<<i;start=false;continue;}
     }
 }
 vector<int> strassenAlgorithm(vector<int> polyA, vector<int> polyB)
